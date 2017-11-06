@@ -30,13 +30,15 @@ public class Tableau extends AbstractCell {
 		return (isEmpty() || (!top.sameColor(myCard) && myCard.oneLarger(top)));
 	}
 	
-	public void addFrom(Cell c) {
+	public boolean addFrom(Cell c) {
 		if (canAddFrom(c)) {
 			while (! cardsToMove.isEmpty()) {
 				c.remove();
 				add((Card)cardsToMove.remove(cardsToMove.size() - 1));
 			}
-	}
+			return true;
+		}
+		return false;
 	}
 	
 	public boolean inOrder() {

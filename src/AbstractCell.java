@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class AbstractCell {
+public class AbstractCell implements Cell, Iterable<Card> {
 	
 	private ArrayList<Card> cards;
 	private int maxSize;
@@ -18,7 +18,7 @@ public class AbstractCell {
 					
 	}
 	
-	public boolean isTableauCell(Cell c) {
+	public boolean isTableau(Cell c) {
 		if (c instanceof Tableau)
 			return true;
 		else
@@ -33,7 +33,7 @@ public class AbstractCell {
 	}
 	
 	public boolean canAddFrom(Cell c) {
-		if (c.isEmpty() != false && c.size() != maxSize && c.isHomeCell() != true) {
+		if (c.isEmpty() != false && c.size() != maxSize && isHomeCell(c ) != true) {
 			return true;
 		}
 		else
@@ -44,12 +44,23 @@ public class AbstractCell {
 		cards.add(c);
 	}
 	
-	public void addFrom(Cell c) {
-		add(c.remove());
+	public boolean addFrom(Cell c) {
+		if (canAddFrom(c)) {
+			add(c.remove());
+			return true;
+		}
+		else
+			return false;
 	}
 	
 	public void clear() {
 		cards.clear();
+	}
+	
+	public Card remove(){
+		if (cards.isEmpty())
+			throw new IllegalArgumentException("Cell is empty");
+		return cards.remove(cards.size()-1);
 	}
 	
 	public Card remove(int i) {
@@ -93,6 +104,14 @@ public class AbstractCell {
 			stringToReturn += currentCard.toString() + "\n";
 		}
 		return stringToReturn;
+	}
+	
+	public int size() {
+		return cards.size();
+	}
+	
+	public boolean inOrder() {
+		return true;
 	}
 	
 }
