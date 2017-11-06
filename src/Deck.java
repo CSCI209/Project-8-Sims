@@ -3,8 +3,8 @@ import javax.swing.*;
 
 /**
  * Represents a deck of playing cards.
- * @author Shep Sims & klambert
- *
+ * @author Shep Sims, Andrew Baca, Trip Calihan, Peter Blairo
+ * File: Deck.java
  */
 public class Deck{
 
