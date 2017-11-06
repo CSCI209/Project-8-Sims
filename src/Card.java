@@ -3,7 +3,7 @@ import javax.swing.*;
 /**
  * Represents a playing card with a suit,
  * rank, image, and face up status.
- * @author lambertk
+ * @author Peter Blair, Trip Calihan, Shep Sims, Andrew Bacca
  *
  */
 public class Card implements Comparable<Card>{
@@ -13,11 +13,13 @@ public class Card implements Comparable<Card>{
     private boolean faceUp;
     private Icon image;
     private static Icon CARD_BACK;
+    private String color;
 
     /**
      * Constructor.
      * @param suit the card's suit
      * @param rank the card's rank
+     * @param color the card's color
      */
     public Card(Suit suit, int rank){
     	this.suit = suit;
@@ -26,7 +28,12 @@ public class Card implements Comparable<Card>{
     	image = getImageFromFile(rank, suit);
     	if (CARD_BACK == null)
     		CARD_BACK = getBackFromFile();
-    }
+    	if ((suit.equals(Suit.diamond)) || (suit.equals(Suit.heart))) {
+    		color = "red";
+    	}
+    	else
+    		color = "black";
+    	}
 
     /**
      * Returns the card's face image if its face is up or its back side image otherwise.
@@ -116,4 +123,29 @@ public class Card implements Comparable<Card>{
         else if (rank == 13) return "King";
         else return "Ace";
     }
+    
+    /**
+     * Compares two cards for value differential
+     * @return true if the difference in card values is 1 or false otherwise
+     */
+    public boolean oneLarger(Card other) {
+    		return rank - other.getRank() == 1;
+    }
+    
+    /**
+     * Compares two cards to identify if they have the same color
+     * @return true if the cards are the same color or false otherwise
+     */
+    public boolean sameColor(Card other) {
+    		return color.equals(color);
+    }
+    
+    /**
+     * Compares two cards to identify if they are of the same suit
+     * @return true if the cards are the same suit or false otherwise
+     */
+    public boolean sameSuit(Card other) {
+    		return suit.equals(other.getSuit());
+    }
+    
 }
