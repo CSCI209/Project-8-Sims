@@ -27,16 +27,17 @@ public class FreeCellModel
 			c.clear();
 		for (Cell c:tableaux)
 			c.clear();
-		for (int i = 1; i<=6;i++)
-			for (int i2 = 0;i2<8;i++) {
+		for (int i = 0; i<8;i++) {
+			for (int i2 = 0;i2<6;i2++) {
 				Card cardToDeal  = deck.deal();
 				cardToDeal.turn();
-				tableaux.get(i2).add(cardToDeal);
+				tableaux.get(i).add(cardToDeal);
 			} 
+		}
 		for (int i = 0;i < 4; i++) {
-			Card card = deck.deal();
-			card.turn();
-			tableaux.get(i).add(card);
+			Card cardToDeal = deck.deal();
+			cardToDeal.turn();
+			tableaux.get(i).add(cardToDeal);
 		}
 	}
   
