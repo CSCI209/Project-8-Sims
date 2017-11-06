@@ -3,7 +3,7 @@ import javax.swing.*;
 /**
  * Represents a playing card with a suit,
  * rank, image, and face up status.
- * @author Peter Blair, Trip Calihan, Shep Sims, Andrew Bacca
+ * @author Trip Calihan, Peter Blair, Shep Sims, Andrew Bacca
  *
  */
 public class Card implements Comparable<Card>{
