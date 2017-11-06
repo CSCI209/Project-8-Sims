@@ -1,5 +1,11 @@
 import java.util.Iterator;
 
+/**
+ * @author Shep Sims, Peter Blair, Andrew Baca, Trip Calihan
+ * File: Cell.java
+ * Creates an abstract interface 
+ */
+
 public abstract interface Cell
 {
   public abstract boolean canAddFrom(Cell paramCell);
