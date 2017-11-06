@@ -29,10 +29,10 @@ public class Card implements Comparable<Card>{
     	if (CARD_BACK == null)
     		CARD_BACK = getBackFromFile();
     	if ((suit.equals(Suit.diamond)) || (suit.equals(Suit.heart))) {
-    		color = "red";
+    		this.color = "red";
     	}
     	else
-    		color = "black";
+    		this.color = "black";
     	}
 
     /**

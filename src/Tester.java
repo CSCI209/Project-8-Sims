@@ -13,8 +13,7 @@
 public class Tester {
 	
 	public static void main(String[] args) {
-		FreeCellModel game;
-		game = new FreeCellModel();
+		FreeCellModel game = new FreeCellModel();
 		game.reset();
 		game.toString();
 		
