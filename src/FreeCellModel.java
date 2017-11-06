@@ -19,7 +19,26 @@ public class FreeCellModel
 		}  
 	}  
 	public void reset() {
-    
+		Deck deck = new Deck();
+		deck.shuffle();
+		for (Cell c:freeCells)
+			c.clear();
+		for (Cell c:homeCells)
+			c.clear();
+		for (Cell c:tableaux)
+			c.clear();
+		for (int i = 1; i<7;i++) {
+			for (int i2 = 0;i2<8;i++) {
+				Card cardToDeal  = deck.deal();
+				cardToDeal.turn();
+				tableaux.get(i2).add(cardToDeal);
+			} 
+		}
+		for (int i = 0;i < 4; i++) {
+			Card card = deck.deal();
+			card.turn();
+			tableaux.get(i).add(card);
+		}
 	}
   
 	public Cell getFreeCell(int i) {
@@ -39,13 +58,58 @@ public class FreeCellModel
 	}
   
 	public boolean allDone() {
-
+		for (Cell t:tableaux)
+			if(!t.inOrder())
+				return false;
+		return true;
 	}
   
 	public boolean cantMove() {
-    
+		Iterator<Cell> iter2;
+		for(Iterator<Cell> iter = freeCells.iterator(); iter.hasNext(); iter2.hasNext()) {
+			Cell free = (Cell)iter.next();
+			if (free.isEmpty()) {
+				return false;
+			}
+			iter2 = homeCells.iterator();
+			Cell home = (Cell) iter2.next();
+			if (home.canAddFrom(free)) {
+				return false;
+			}
+		}
+		for (int i = 0; i < tableaux.size();i++) {
+			Cell tab = tableaux.get(i);
+			
+			for (Cell free : freeCells) {
+				if (tab.canAddFrom(free))
+					return false;
+			}
+			for (Cell home:homeCells) {
+				if (home.canAddFrom(tab))
+					return false;
+			}
+			for (int i2 = 0; i2 < tableaux.size();i2++) {
+				if (i!= i2 && tableaux.get(i2).canAddFrom(tab))
+					return false;
+			}
+		}
+		return true;
 	}
   
 	public String toString() {
+		String returnMe = "";
+		for (int i = 0; i<freeCells.size(); i++) {
+			returnMe = returnMe + "Free Cell " + (i+1) + "\n";
+			returnMe = returnMe + freeCells.get(i).toString();
+		}
+		for (int i = 0; i<homeCells.size(); i++) {
+			returnMe = returnMe + "Home Cell " + (i+1) + "\n";
+			returnMe = returnMe + homeCells.get(i).toString();
+		}
+		for (int i = 0; i<tableaux.size(); i++) {
+			returnMe = returnMe + "Tableaux " + (i+1) + "\n";
+			returnMe = returnMe + tableaux.get(i).toString();
+		}
+		return returnMe;
 	}
 }
