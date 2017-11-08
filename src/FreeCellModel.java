@@ -18,7 +18,7 @@ public class FreeCellModel
 		freeCells = new ArrayList<Cell>();
 		homeCells = new ArrayList<Cell>();
 		tableaux = new ArrayList<Cell>();
-		for (int i = 0; i<4; i++); {
+		for (int i=0; i<4; i++) {
 			freeCells.add(new FreeCell());
 			homeCells.add(new HomeCell());
 		}
@@ -74,7 +74,7 @@ public class FreeCellModel
 	/**
 	 * Returns the object at index position, "i" in Tableau
 	 * @param i -- index position
-	 * @return the card at designated index position
+	 * @return the cell at designated index position
 	 */
 	public Cell getTableau(int i) {
 		return (Cell)tableaux.get(i);
@@ -84,7 +84,7 @@ public class FreeCellModel
 	 * Moves a card from one cell to the other
 	 * @param cell1
 	 * @param cell2
-	 * @return cell2 with the added card
+	 * @return boolean true if possible, false if not
 	 */
 	public boolean moveCard(Cell cell1, Cell cell2) {
 	  return cell2.addFrom(cell1);
@@ -145,15 +145,15 @@ public class FreeCellModel
 	public String toString() {
 		String returnMe = "";
 		for (int i = 0; i<freeCells.size(); i++) {
-			returnMe = returnMe + "Free Cell " + (i+1) + "\n";
+			returnMe = returnMe + "\nFree Cell " + (i+1) + ":\n";
 			returnMe = returnMe + freeCells.get(i).toString();
 		}
 		for (int i = 0; i<homeCells.size(); i++) {
-			returnMe = returnMe + "Home Cell " + (i+1) + "\n";
+			returnMe = returnMe + "\nHome Cell " + (i+1) + ":\n";
 			returnMe = returnMe + homeCells.get(i).toString();
 		}
 		for (int i = 0; i<tableaux.size(); i++) {
-			returnMe = returnMe + "Tableaux " + (i+1) + "\n";
+			returnMe = returnMe + "\nTableaux " + (i+1) + ":\n";
 			returnMe = returnMe + tableaux.get(i).toString();
 		}
 		return returnMe;

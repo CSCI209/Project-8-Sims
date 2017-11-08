@@ -33,37 +33,11 @@ public class AbstractCell implements Cell, Iterable<Card> {
 	}
 	
 	/**
-	 * Determines if cell "c" is an instance of Tableau
-	 * @return true if it is or otherwise false
-	 */
-	public boolean isTableau(Cell c) {
-		if (c instanceof Tableau)
-			return true;
-		else
-			return false;
-	}
-	
-	/**
-	 * Determines if cell "c" is an instance of FreeCell
-	 * @return true if it is or otherwise false
-	 */
-	public boolean isFreeCell(Cell c) {
-		if (c instanceof FreeCell)
-			return true;
-		else
-			return false;
-	}
-	
-	/**
 	 * Determines whether the card can be added from the pile
 	 * @return true if it meets the conditions or false otherwise
 	 */
 	public boolean canAddFrom(Cell c) {
-		if (c.isEmpty() != false && c.size() != maxSize && isHomeCell(c ) != true) {
-			return true;
-		}
-		else
-			return false;
+		return (!c.isEmpty()) && (cards.size() != maxSize) && (!(c instanceof HomeCell));
 	}
 	
 	/**
@@ -133,7 +107,7 @@ public class AbstractCell implements Cell, Iterable<Card> {
 	 * @throws IllegalArgumentException if the index is out of range
 	 */
 	public Card get(int i) {
-		if (i< 0 || i<cards.size())
+		if (i< 0 || i>cards.size())
 			throw new IllegalArgumentException("Index out of range");
 		else
 			return cards.get(i);
@@ -165,12 +139,10 @@ public class AbstractCell implements Cell, Iterable<Card> {
 	 * @return true if the cards are in order or false otherwise
 	 */
 	public String toString() {
-		Iterator<Card> iter = cards.iterator();
-		Card currentCard = iter.next();
-		String stringToReturn = currentCard.toString() + "\n";
-		while (cards.iterator().hasNext()) {
-			currentCard = iter.next();
-			stringToReturn += currentCard.toString() + "\n";
+		Card currentCard = null;
+		String stringToReturn = "";
+		for (Iterator<Card> iter = iterator(); iter.hasNext(); stringToReturn = stringToReturn + currentCard + "\n") {
+			currentCard = (Card)iter.next();
 		}
 		return stringToReturn;
 	}

@@ -67,11 +67,11 @@ public class Tableau extends AbstractCell {
 	 * @return true if the cards are in order, otherwise returns false
 	 */
 	public boolean inOrder() {
-		if ((isEmpty()) || (cardsToMove.size() == 1)) {
+		if ((isEmpty()) || (size() == 1)) {
 			return true;
 		}
 		Card card = seeTop();
-		for (int i = cardsToMove.size() - 2; i >= 0; i--) {
+		for (int i = size() - 2; i >= 0; i--) {
 			Card nextCard = get(i);
 			if ((card.sameColor(nextCard)) || (! nextCard.oneLarger(card))) {
 				return false;

@@ -35,8 +35,4 @@ public abstract interface Cell
   public abstract String toString();
   
   public abstract boolean isHomeCell(Cell c);
-  
-  public abstract boolean isFreeCell(Cell c);
-  
-  public abstract boolean isTableau(Cell c);
 }
