@@ -55,11 +55,11 @@ public class GUIView extends JFrame{
 // Add CellListener for each panel
 		
 		for (int i=0; i<8; i++) {
-			addMouseListener(new CellListener(TopCellPanels.get(i)));
+			addMouseListener(new CellListener(getTopCellPanel(i)));
 		}
 		
 		for (int i=0; i<8; i++) {
-			addMouseListener(new CellListener(TableauxPanels.get(i)));
+			addMouseListener(new CellListener(getTableauPanel(i)));
 		}
 		
 // Add Button Action
@@ -67,13 +67,32 @@ public class GUIView extends JFrame{
 
 			public void actionPerformed(ActionEvent l) {
     			game.reset();
-    			for (i=0; i<8; i++) {
+    			for (int i=0; i<8; i++) {
     				panel1.setCard(null);
         			panel2.setCard(null);
     			}
     		}
     	
     });
+
+// Methods for getting panels?
+		/**
+		 * Returns the object at index position, "i" in FreeCell
+		 * @param i -- index position
+		 * @return the card at designated index position
+		 */
+		public CellPanel getTopCellPanel(int i) {
+			return (CellPanel)this.TopCellPanels.get(i);
+		}
+	  
+		/**
+		 * Returns the object at index position, "i" in Tableau
+		 * @param i -- index position
+		 * @return the cell at designated index position
+		 */
+		public CellPanel getTableauPanel(int i) {
+			return (CellPanel)this.TableauxPanels.get(i);
+		}
 	}
 	
 }
