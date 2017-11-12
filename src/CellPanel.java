@@ -6,7 +6,7 @@ public class CellPanel extends JPanel{
 	
 	public CellPanel(Cell c) {
 		cell = c;
-		addMouseListener(new CellListener(cell));
+//		addMouseListener(new CellListener(new CellPanel()));
 	}
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);

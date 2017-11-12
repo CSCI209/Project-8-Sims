@@ -8,6 +8,6 @@ public class CellListener extends MouseAdapter{
 		panel = CP;
 	}
 	public void clicked(MouseEvent E) {
-		mainView.panelpressed(null);
+		GUIView.panelpressed(null);
 	}
 }

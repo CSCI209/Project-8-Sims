@@ -3,7 +3,8 @@ import java.util.*;
 /**
  * @author Peter Blair, Shep Sims, Andrew Baca, Trip Calihan
  * File: FreeCellModel.java
- * Defines the FreeCellModel class which sets up the game
+ * Defines the FreeCellModel class which sets up the game.
+ * (Equivalent to FreeCellGame.)
  */
 public class FreeCellModel
 {
