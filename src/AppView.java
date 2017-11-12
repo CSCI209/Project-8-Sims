@@ -18,17 +18,16 @@ import java.util.*;
  * 
  * Move cards with mouse clicks from tableaux to other cells to play.
  * 
- * (Equivalent to AppView.)
  */
 
-public class GUIView extends JFrame{
+public class AppView extends JFrame{
 	private static Color DefaultColor = new Color(20, 200, 20);
 	private ArrayList<CellPanel> TopCellPanels;
 	private ArrayList<CellPanel> TableauxPanels;
-	private FreeCellModel model;
+	private FreeCellGame model;
 	private CellPanel clickedPanel;
 	
-	public GUIView(FreeCellModel game) {
+	public AppView(FreeCellGame game) {
 		model = game;
 		setBackground(DefaultColor);
 		clickedPanel = null;

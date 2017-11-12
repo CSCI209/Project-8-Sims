@@ -2,11 +2,11 @@ import java.util.*;
 
 /**
  * @author Peter Blair, Shep Sims, Andrew Baca, Trip Calihan
- * File: FreeCellModel.java
- * Defines the FreeCellModel class which sets up the game.
+ * File: FreeCellGame.java
+ * Defines the FreeCellGame class which sets up the game.
  * (Equivalent to FreeCellGame.)
  */
-public class FreeCellModel
+public class FreeCellGame
 {
 	private ArrayList<Cell> freeCells;
 	private ArrayList<Cell> homeCells;
@@ -15,7 +15,7 @@ public class FreeCellModel
 	/**
 	 * Constructor method for the class, creates the different decks/piles
 	 */
-	public FreeCellModel() {
+	public FreeCellGame() {
 		freeCells = new ArrayList<Cell>();
 		homeCells = new ArrayList<Cell>();
 		tableaux = new ArrayList<Cell>();

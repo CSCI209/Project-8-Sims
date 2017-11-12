@@ -13,8 +13,8 @@
 public class Tester {
 	
 	public static void main(String[] args) {
-		FreeCellModel game;
-		game = new FreeCellModel();
+		FreeCellGame game;
+		game = new FreeCellGame();
 		game.reset();
 		System.out.println("Test if card can be moved from top of tableau index 0 to free cell index 0, expect true");
 		System.out.println(game.getFreeCell(0).canAddFrom(game.getTableau(0)));
