@@ -149,10 +149,18 @@ public class AbstractCell implements Cell, Iterable<Card> {
 		return stringToReturn;
 	}
 	
+	/**
+	 * Checks and returns the size of ArrayList cards
+	 * @return - size of the ArrayList cards
+	 */
 	public int size() {
 		return cards.size();
 	}
 	
+	/**
+	 * Checks to see if a Cell's card are in order
+	 * @return - true if in order, else false
+	 */
 	public boolean inOrder() {
 		return true;
 	}

@@ -85,6 +85,13 @@ public class AppView extends javax.swing.JFrame
     TableauPanels(gbc, layout, c);
   }
   
+  /**
+   * Fills ArrayList TopCellPanels with Cells from homeCellPanels and freeCellPanels, then 
+   * sets constraints and adds them to the container to view
+   * @param gbc - Grid Bag Constraints
+   * @param layout - Grid Bag layout for viewing
+   * @param c - container which holds all components to be viewed
+   */
   private void TopCellPanels(GridBagConstraints gbc, GridBagLayout layout, Container c)
   {
     homeCellPanels = new ArrayList<AbstractCellPanel>();
@@ -111,6 +118,13 @@ public class AppView extends javax.swing.JFrame
     }
   }
   
+  /**
+   * Fills ArrayList TableauPanels with Cells from Tableaux, then 
+   * sets constraints and adds them to the container to view
+   * @param gbc - Grid Bag Constraints
+   * @param layout - Grid Bag layout for viewing
+   * @param c - container which holds all components to be viewed
+   */
   private void TableauPanels(GridBagConstraints gbc, GridBagLayout layout, Container c)
   {
     tableauPanels = new ArrayList<AbstractCellPanel>();
