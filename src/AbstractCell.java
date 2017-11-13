@@ -3,7 +3,9 @@ import java.util.*;
 /**
  * @author Shepherd Sims, Andrew Baca, Trip Calihan, Peter Blair
  * File: AbstractCell.java
+ * 
  * Implements the Cell class and defines responsibilities
+ * 
  */
 
 public class AbstractCell implements Cell, Iterable<Card> {

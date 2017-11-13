@@ -6,7 +6,8 @@
 public class HomeCell extends AbstractCell
 {
 	/**
-	 * Calls method from AbstractCell
+	 * Recalls the constructor from AbstractCell. 
+	 * HomeCells will always be built with array lengths of 13.
 	 */
 	public HomeCell() {
 			super(13);

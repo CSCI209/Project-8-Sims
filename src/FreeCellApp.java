@@ -1,11 +1,12 @@
 import javax.swing.JFrame;
 
 /**
- * Generic main method template for any GUI-based application.
- * Instantiates a model and passes it to a new view. 
- * (Equivalent to FreeCellApp.)
  * @author lambertk, Shepard Sims, Andrew Baca, Trip Calihan, Peter Blair
- *
+ * File: FreeCellApp.java
+ * 
+ * Main method for a GUI-based game of Free Cell
+ * Instantiates a model (FreeCellGame) and passes it to a new view (AppView). 
+ * 
  */
 public class FreeCellApp{
 	public FreeCellApp() {}

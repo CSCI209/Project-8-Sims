@@ -3,6 +3,25 @@ import java.util.*;
 import javax.swing.*;
 import java.awt.event.*;
 
+/**
+ * @author lambertk, Shepard Sims, Andrew Baca, Trip Calihan, Peter Blair
+ * File: AppView.java
+ *
+ * The main view for the game of Free Cell. 
+ * 
+ * It displays 16 panels in two groups of 8 panels, a bottom and a top group.
+ * It also displays a button, labeled "New Game,"  at the bottom, which resets
+ * the game when pressed.
+ * 
+ * The panels in the top correspond to the free cells and home cells, 4 each. 
+ * They will display only the top card or the wire frame, if empty. The bottom
+ * panels represent the 8 tableaux and will display all cards in their respective
+ * stacks, or their wire frame if empty.
+ * 
+ * Move cards with mouse clicks from tableaux to other cells to play.
+ * 
+ */
+
 public class AppView extends javax.swing.JFrame
 {
   public static final Color DefaultColor = new Color(75, 175, 100);

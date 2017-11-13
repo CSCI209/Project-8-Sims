@@ -9,16 +9,17 @@ public class Tableau extends AbstractCell {
 	private ArrayList<Card> cardsToMove;
 	
 	/**
-	 * Calls on its superclass, AbstractCell
+	 * Calls on its superclass's (AbstractCell's) constructor.
+	 * Tableaux will all have array lenghts of 13.
 	 */
 	public Tableau() {
-		super(52);
+		super(13);
 	}
 	
 	/**
 	 * Establishes whether cards can be added. Calls on its superclass first, then goes through a series
 	 * of checks to determine whether a card can be added or not, based on color, suit and rank
-	 * @param c
+	 * @param a Cell (c).
 	 * @return it either returns isEmpty or the sameColor & oneLarger methods from Card.java
 	 */
 	public boolean canAddFrom(Cell c) {
@@ -47,7 +48,7 @@ public class Tableau extends AbstractCell {
 	/**
 	 * Checks canAddFrom to see if conditions are met, then takes a card from cardsToMove and moves it
 	 * while reducing the size of cardsToMove pile by 1
-	 * @param c
+	 * @param a Cell (c).
 	 * @return true if it successfully adds a card or otherwise false
 	 */
 	public boolean addFrom(Cell c) {

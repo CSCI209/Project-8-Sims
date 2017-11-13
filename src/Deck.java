@@ -2,9 +2,11 @@ import java.util.*;
 import javax.swing.*;
 
 /**
- * Represents a deck of playing cards.
  * @author Shep Sims, Andrew Baca, Trip Calihan, Peter Blairo
  * File: Deck.java
+ * 
+ * Represents a deck of playing cards.
+ * 
  */
 public class Deck{
 
