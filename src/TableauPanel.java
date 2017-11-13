@@ -15,10 +15,11 @@ public class TableauPanel extends AbstractCellPanel{
 	        graphics.drawRect(x, y, image.getIconWidth(), image.getIconHeight());
 	      }
 	      else {
-	    	  for (int i = 0;i<cell.size()-1;i++) {
-	    		  Icon image = cell.get(cell.size() - 1).getImage();
+	    	  for (int i = 0;i<cell.size();i++) {
+	    		  Icon image = cell.get(i).getImage();
 	    		  int x = (getWidth() - image.getIconWidth()) / 2;
 	    		  image.paintIcon(this, graphics, x, y);
+	    		  y+=35;
 	    	  }
 	      }
 	}

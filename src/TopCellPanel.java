@@ -10,7 +10,7 @@ public class TopCellPanel extends AbstractCellPanel{
 		int y = 0;
 	    if ((cell == null) || (cell.isEmpty())) {
 	        Icon image = Card.getBack();
-	        graphics.setColor(new java.awt.Color(100, 100, 0));
+	        graphics.setColor(new java.awt.Color(255, 255, 0));
 	        int x = (getWidth() - image.getIconWidth()) / 2;
 	        graphics.drawRect(x, y, image.getIconWidth(), image.getIconHeight());
 	      }

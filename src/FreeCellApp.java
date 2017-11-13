@@ -13,7 +13,7 @@ public class FreeCellApp{
     public static void main(String[] args){
     		JFrame view = new AppView(new FreeCellGame());
         view.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        view.setSize(1000, 1000);
+        view.setSize(1300, 1300);
         view.setVisible(true);
     }
 }
