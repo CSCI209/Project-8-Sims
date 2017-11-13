@@ -8,10 +8,10 @@ import javax.swing.JFrame;
  *
  */
 public class FreeCellApp{
+	public FreeCellApp() {}
 
     public static void main(String[] args){
-    		final FreeCellGame game = new FreeCellGame();
-    		final JFrame view = new AppView(game);
+    		JFrame view = new AppView(new FreeCellGame());
         view.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         view.setSize(1000, 1000);
         view.setVisible(true);

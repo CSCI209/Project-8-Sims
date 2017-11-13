@@ -57,7 +57,7 @@ public class FreeCellGame
 	/**
 	 * Returns the object at index position, "i" in FreeCell
 	 * @param i -- index position
-	 * @return the card at designated index position
+	 * @return the cell at designated index position
 	 */
 	public Cell getFreeCell(int i) {
 		return (Cell)freeCells.get(i);
@@ -66,7 +66,7 @@ public class FreeCellGame
 	/**
 	 * Returns the object at index position, "i" in HomeCell
 	 * @param i -- index position
-	 * @return the card at designated index position
+	 * @return the cell at designated index position
 	 */
 	public Cell getHomeCell(int i) {
 		return (Cell)homeCells.get(i);

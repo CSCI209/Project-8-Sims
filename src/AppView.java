@@ -1,6 +1,8 @@
+import java.awt.event.*;
 import java.awt.*;
 import javax.swing.*;
 import java.util.*;
+import java.awt.Container;
 
 /**
  * @author lambertk, Shepard Sims, Andrew Baca, Trip Calihan, Peter Blair
@@ -21,77 +23,67 @@ import java.util.*;
  */
 
 public class AppView extends JFrame{
-	private static Color DefaultColor = new Color(20, 200, 20);
-	private ArrayList<CellPanel> TopCellPanels;
-	private ArrayList<CellPanel> TableauxPanels;
+	private static Color DefaultColor = new Color(100, 150, 125);
+	private ArrayList<TopCellPanel> TopCellPanels;
+	private ArrayList<TableauPanel> TableauxPanels;
 	private FreeCellGame model;
-	private CellPanel clickedPanel;
+	private JButton button;
 	
 	public AppView(FreeCellGame game) {
 		model = game;
-		setBackground(DefaultColor);
-		clickedPanel = null;
-		this.setTitle("Free Cell");
-		JButton button = new JButton("New Game");
-// Creating Panels (Top row  of panels (Free cell panels (4) and then Home 
-// cell panels (4)) and then the bottom row (Tableaux panels (8)))
-		
-		TopCellPanels = new ArrayList<CellPanel>();
-		TableauxPanels = new ArrayList<CellPanel>();
-		
-		for (int i=0; i<4; i++) {
-			TopCellPanels.add(new CellPanel(game.getFreeCell(i)));
-		}
-		
-		for (int i=0; i<4; i++) {
-			TopCellPanels.add(new CellPanel(game.getHomeCell(i)));
-		}
-		
-		for (int i=0; i<8; i++) {
-			TableauxPanels.add(new CellPanel(game.getTableau(i)));
-		}
-		
-// Add CellListener for each panel
-		
-		for (int i=0; i<8; i++) {
-			addMouseListener(new CellListener(getTopCellPanel(i)));
-		}
-		
-		for (int i=0; i<8; i++) {
-			addMouseListener(new CellListener(getTableauPanel(i)));
-		}
-		
-// Add Button Action
+		button = new JButton("New Game");
+		Container c = getContentPane();
+		c.setBackground(DefaultColor);
+		GridBagLayout layout = new GridBagLayout();
+		c.setLayout(layout);
+		GridBagConstraints constraints = new GridBagConstraints();
+		makeTopCellPanels(constraints, layout, c);
+		makeTableauxPanels(constraints, layout, c);
 		button.addActionListener(new ActionListener() {
-
 			public void actionPerformed(ActionEvent l) {
     			game.reset();
-    			for (int i=0; i<8; i++) {
-    				panel1.setCard(null);
-        			panel2.setCard(null);
-    			}
+    			AppView.this.model = new FreeCellGame();
     		}
     	
     });
-
-// Methods for getting panels?
-		/**
-		 * Returns the object at index position, "i" in FreeCell
-		 * @param i -- index position
-		 * @return the card at designated index position
-		 */
-		public CellPanel getTopCellPanel(int i) {
-			return (CellPanel)this.TopCellPanels.get(i);
-		}
-	  
-		/**
-		 * Returns the object at index position, "i" in Tableau
-		 * @param i -- index position
-		 * @return the cell at designated index position
-		 */
-		public CellPanel getTableauPanel(int i) {
-			return (CellPanel)this.TableauxPanels.get(i);
-		}
 	}
-	
+		public void makeTopCellPanels(GridBagConstraints constraints, GridBagLayout layout, Container c) {
+			TopCellPanels = new ArrayList<TopCellPanel>();
+			constraints.weightx = .5;
+			constraints.weighty = .5;
+			constraints.gridx = 0;
+			constraints.gridy = 1;
+			constraints.gridwidth = 1;
+			for (int i=0; i<4; i++) {
+				TopCellPanels.add(new TopCellPanel(model.getFreeCell(i)));
+				TopCellPanels.get(i).setBackground(DefaultColor);
+				layout.setConstraints(TopCellPanels.get(i), constraints);
+				constraints.gridx += 1;
+				c.add(TopCellPanels.get(i));
+		}
+			for (int i=0; i<4; i++) {
+				TopCellPanels.add(new TopCellPanel(model.getHomeCell(i)));
+				TopCellPanels.get(i).setBackground(DefaultColor);
+				layout.setConstraints(TopCellPanels.get(i), constraints);
+				constraints.gridx += 1;
+				c.add(TopCellPanels.get(i));
+			}
+		
+		
+		}
+		public void makeTableauxPanels(GridBagConstraints constraints, GridBagLayout layout, Container c) {
+			TableauxPanels = new ArrayList<TableauPanel>();
+			constraints.weightx = .5;
+			constraints.weighty = .5;
+			constraints.gridx = 0;
+			constraints.gridy = 2;
+			constraints.gridwidth = 1;
+			for (int i=0; i<8; i++) {
+				TableauxPanels.add(new TableauPanel(model.getTableau(i)));
+				TableauxPanels.get(i).setBackground(DefaultColor);
+				layout.setConstraints(TableauxPanels.get(i), constraints);
+				constraints.gridx += 1;
+				c.add(TopCellPanels.get(i));
+		}
+}
 }
