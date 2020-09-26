@@ -1,4 +1,4 @@
-# Free Cell Application
+# Playable Free Cell JAVA Application
 
 Playable Free Cell Application built to practice class inheritance through extention, error handling, action listeners, and JFrame front end.  
 
